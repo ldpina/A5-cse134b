@@ -13,17 +13,14 @@
         <header>
             <input type="checkbox" id="toggle">
             <nav>
-
                 <a id="titleSite" href="index.html">
                     Luis Pina
                 </a>
-
                 <label class="navbar-toggler" for="toggle">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
                 </label>
-
                 <ul class="nav-list">
                     <li class="nav-item">
                         <a class="nav-link" href = "index.html">Home</a>
@@ -44,37 +41,57 @@
             <picture>
                 <img src = "LuispinaLinkedin.png" alt = "Luis Pina" width= "300" height = "300">
             </picture>
+
             <h2>Hi I am an aspriring <i>software engineer</i></h2>
-    
-            <aside>
-                <h3>About me:</h3>
-                <p>On my free time I love to go outside and explore nature. Here is my favorite picture I took when I traveled to hawaii</p>
+
+            <h3>About me:</h3>
+            <p class = "paraContent">On my free time I love to spend as much time in naturea as well as going on hikes. Whenever I travel, I like to go to places
+                where I can go on hikes. Two of my favorite pictures I've taken while traveling was in Hawaii and Sedona. You can see them below!</p>
+            <div class = "details-container">
                 <details>
                     <summary>Hawaii Picture</summary>
                     <figure>
                         <img src = "hawaiiTrees.JPG" alt = "trees in hawaii" width= "500" height = "500">      
                         <figcaption>Fig.1 - Picture taken at <cite>Mānoa Falls Trail</cite></figcaption>
-                      </figure>             
-                  </details>
+                    </figure>           
+                </details>
+                <details>
+                    <summary>Devils Bridge Sedona</summary>
+                    <figure>
+                        <img src = "sedona.JPG" alt = "devils bridge sedona" width= "500" height = "500">      
+                        <figcaption>Fig.2 - Picture taken at <cite>Devils Bridge Sedona</cite></figcaption>
+                    </figure>           
+                </details>
+            </div>
+            
     
-            </aside>
             <br>
     
             <hr>
             <section class="homeContent">
-                <h2>Techinical Expreince/Journey</h2>
-                <p>I have compelted two codepath certificates,
+                <h2 class = "headings" >Techinical Expreince/Journey</h2>
+                <p class = "paraContent"> During my time at UCSD I have compelted two codepath certificates,
                     one in <strong>Intermediate Web Development</strong> and one in <strong>Intermediate Techinical Interview Prep</strong>.
-                    From these course I was able to create <b>2</b> main projects on the side. <em>RoamMates</em> and <em>Recipe Dashboard</em>
-                    are the titles of them. Prior to taking my CSE 134B class I would always try to <code>div</code> everything out since that I was most comfortable with.  But I have definitely learned
-                    from my mistakes and now am ready to create projects without so many <del>divs!</del>
+                    From these course I was able to create <b>2</b> main projects on the side. <em>RoamMates</em> and <em>Recipe Dashboard</em>. 
+                    In these projects I was able to demonstrate my ability of CRUD features, API calls, graphing technologies, and database mangment.
+                    Prior to taking my CSE 134B class I would always try to put everything into <code>divs</code> since that I was most familiar with in formatting everything.
+                    But after taking this course I have been able to finally realize that their are other html tags that work the same if not better than divs in some scenarios.
                 </p>
             </section>
 
             <section class="homeContent">
-                <h2>Projects</h2>
-                <p>Over the past few years of college these are Projects I have completed.</p>
+                <h2 class = "headings" >Projects</h2>
+                <p class = "paraContent">Over the past few years of college these are Projects I have completed.</p>
                 <div id = "projectArea"></div>
+            </section>
+
+            <section class="homeContent">
+                <h2 class = "headings">Demo of skills</h2>
+                <p class = "paraContent">Although I do not have project exprience in utilizing localStorage and remote storage here is a demo of my capibility.</p>
+                <button class = "demoButtons" id="loadLocal">Load Local</button>
+                <button  class = "demoButtons" id="loadRemote">Load Remote</button>
+                <div id="cardContainer"></div>
+                <script src="buttonScript.js"></script>
             </section>
             <br>
     

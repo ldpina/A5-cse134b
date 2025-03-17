@@ -2,13 +2,13 @@
     {
         "title": "RoamMates",
         "image": "roammates.gif",
-        "description": "A social platform for finding travel buddies.",
+        "description": " a dynamic social web application hosted on Netlify and created on React, utilizing Supabase for real-time database functionality.Integrated full CRUD functionality by enabling users to create, read, update, and delete posts while seamlessly managing real-time database interactions with Supabase. I also integrated real-time search and filter functionality, automatically updating and ordering posts based on user-selected criteria.",
         "link": "https://github.com/ldpina/roammates"
     },
     {
         "title": "Recipe Dashboard",
         "image": "recipedashboard.gif",
-        "description": "An app to explore recipes and nutrition details.",
+        "description": "A React application with dynamic routing using React Router, enabling seamless navigation between list and detail views while integrating the Spoonacular API to fetch and display real-time recipe data. In this project as well I incoprated interactive data visualizations using Recharts, transforming API data into bar charts and applying datatransformations such as unit conversions (mg to g) and dynamic text truncation for an improved user experience.",
         "link": "https://github.com/ldpina/recipeDashboard"
     }
     

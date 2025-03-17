@@ -15,9 +15,10 @@
 }
 
 main{
-    margin:0 10%;
+    margin:0 20% 0 20%;
     padding: 2%;
     text-align: center;
+    width: 60%;
 }
 
 body {
@@ -42,6 +43,17 @@ nav {
     background-color: var(--nav-bg);
     position: relative;
 }
+
+p {
+    font-size: 1.15em;
+    font-weight: 400;
+  }
+
+.details-container {
+    justify-content: center;
+    display: flex;
+    gap: 20px; 
+  }
 
 :has(#mood-toggle:checked) {
     --bg-color: black;
@@ -80,7 +92,7 @@ nav {
 
 
 .homeContent{
-    padding: 2%;
+    padding: 1.5%;
 }
 
 #titleSite {
@@ -205,17 +217,18 @@ nav {
     }
 }
 
-.subProjects{
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
-    animation: fadeIn 0.6s ease-in-out;
-    
+
+.headings, .paraContent{
+    padding-bottom: 0.75%;
 }
 
-.demoGifs {
-    width: 38em;
-    height: auto;
+.demoButtons{
+    color: white;
+    padding: 1%;
+    background-color:  rgb(95, 68, 34);
+}
+.demoButtons:hover{
+    background-color: #b95131;
 }
 
 #projectArea {

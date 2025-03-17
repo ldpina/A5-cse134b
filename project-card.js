@@ -22,6 +22,7 @@ class ProjectCard extends HTMLElement {
                 color: rgb(98, 216, 200);
                 font-weight: 500;
             }
+
         </style>
 
         <h2>Project Title</h2>
