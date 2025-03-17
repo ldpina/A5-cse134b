@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>Luis Pina Portfolio</title>
+        <meta charset="UTF-8">
+        <link rel = "stylesheet" href = "styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" id="toggle">
+
+            <nav>
+
+                <a id="titleSite" href="index.html">
+                    Luis Pina
+                </a>
+
+                <label class="navbar-toggler" for="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+
+                <input type = "checkbox" id = "mood-toggle" class = "mood-toggle">
+                <label for = "mood-toggle" class = "mood-toggle-label" aria-label="Toggle Dark Mode">
+                    <span class = "sun">☀</span>
+                    <span class = "moon">🌙</span>
+                </label>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const toggle = document.getElementById("mood-toggle");
+
+                        if (localStorage.getItem("theme") === "dark"){
+                            toggle.checked = true;
+                            document.documentElement.classList.add("dark-mode");
+                        }
+
+                        toggle.addEventListener("change", () => {
+                            if (toggle.checked){
+                                localStorage.setItem("theme","dark");
+                                document.documentElement.classList.add("dark-mode");
+                            } else{
+                                localStorage.setItem("theme","light");
+                                document.documentElement.classList.remove("dark-mode");
+                            }
+                        });
+                    });
+                </script>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link" href = "index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://github.com/ldpina">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://www.linkedin.com/in/ldpina/">Linkedin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "contactme.html">Contact Me</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <br>
+        <main>
+            <form action="https://httpbin.org/">
+                <fieldset>
+                    <legend>Contact Me:</legend>
+
+                    <label for="nameInfo">Name:</label><br>
+                    <input type="text" id="nameInfo" name="nameInfo" value="" required pattern="[A-Za-z\s]+" title = "Only letters and spaces permitted"><br>
+    
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+    
+                    <label for="inquiryInfo">Comments:</label><br>
+                    <textarea id="inquiryInfo" name="inquiryInfo" rows="4" cols="30" placeholder="type here..." maxlength="200" required></textarea>
+
+                    <input type="hidden" id="possible_bot" name="possible_bot" value="true"><br>
+                    <output id="error-message"></output>
+                    <output id="info-message"></output>
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+            <br>
+    
+            <hr>
+    
+            <address>
+                Written by Luis Pina.
+                <br> 
+                Visit my storefront:
+                <br>
+                luispina.com
+                <br>
+                2023 Commerce Rd, Los Angeles
+                <br>
+                USA
+                </address>
+    
+            <br><br>
+        </main>
+    </body>
+</html>

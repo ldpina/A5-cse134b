@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>Luis Pina Portfolio</title>
+        <meta charset="UTF-8">
+        <link rel = "stylesheet" href = "styles.css">
+        <script src="project-card.js"></script>
+        <script src="loadProjects.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" id="toggle">
+            <nav>
+
+                <a id="titleSite" href="index.html">
+                    Luis Pina
+                </a>
+
+                <label class="navbar-toggler" for="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link" href = "index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://github.com/ldpina">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://www.linkedin.com/in/ldpina/">Linkedin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "contactme.html">Contact Me</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <picture>
+                <img src = "LuispinaLinkedin.png" alt = "Luis Pina" width= "300" height = "300">
+            </picture>
+            <h2>Hi I am an aspriring <i>software engineer</i></h2>
+    
+            <aside>
+                <h3>About me:</h3>
+                <p>On my free time I love to go outside and explore nature. Here is my favorite picture I took when I traveled to hawaii</p>
+                <details>
+                    <summary>Hawaii Picture</summary>
+                    <figure>
+                        <img src = "hawaiiTrees.JPG" alt = "trees in hawaii" width= "500" height = "500">      
+                        <figcaption>Fig.1 - Picture taken at <cite>Mānoa Falls Trail</cite></figcaption>
+                      </figure>             
+                  </details>
+    
+            </aside>
+            <br>
+    
+            <hr>
+            <section class="homeContent">
+                <h2>Techinical Expreince/Journey</h2>
+                <p>I have compelted two codepath certificates,
+                    one in <strong>Intermediate Web Development</strong> and one in <strong>Intermediate Techinical Interview Prep</strong>.
+                    From these course I was able to create <b>2</b> main projects on the side. <em>RoamMates</em> and <em>Recipe Dashboard</em>
+                    are the titles of them. Prior to taking my CSE 134B class I would always try to <code>div</code> everything out since that I was most comfortable with.  But I have definitely learned
+                    from my mistakes and now am ready to create projects without so many <del>divs!</del>
+                </p>
+            </section>
+
+            <section class="homeContent">
+                <h2>Projects</h2>
+                <p>Over the past few years of college these are Projects I have completed.</p>
+                <div id = "projectArea"></div>
+            </section>
+            <br>
+    
+            <hr>
+    
+            <address>
+                Written by Luis Pina.
+                <br> 
+                Visit my storefront:
+                <br>
+                luispina.com
+                <br>
+                2023 Commerce Rd, Los Angeles
+                <br>
+                USA
+                </address>
+    
+            <br><br>
+        </main>
+
+    </body>
+</html>

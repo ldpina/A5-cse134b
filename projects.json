@@ -1,0 +1,15 @@
+[
+    {
+        "title": "RoamMates",
+        "image": "roammates.gif",
+        "description": "A social platform for finding travel buddies.",
+        "link": "https://github.com/ldpina/roammates"
+    },
+    {
+        "title": "Recipe Dashboard",
+        "image": "recipedashboard.gif",
+        "description": "An app to explore recipes and nutrition details.",
+        "link": "https://github.com/ldpina/recipeDashboard"
+    }
+    
+]

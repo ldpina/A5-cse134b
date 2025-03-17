@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>Luis Pina Portfolio</title>
+        <meta charset="UTF-8">
+        <link rel = "stylesheet" href = "styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" id="toggle">
+
+            <nav>
+
+                <a id="titleSite" href="index.html">
+                    Luis Pina
+                </a>
+
+                <label class="navbar-toggler" for="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+
+                <input type = "checkbox" id = "mood-toggle" class = "mood-toggle">
+                <label for = "mood-toggle" class = "mood-toggle-label" aria-label="Toggle Dark Mode">
+                    <span class = "sun">☀</span>
+                    <span class = "moon">🌙</span>
+                </label>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const toggle = document.getElementById("mood-toggle");
+
+                        if (localStorage.getItem("theme") === "dark"){
+                            toggle.checked = true;
+                            document.documentElement.classList.add("dark-mode");
+                        }
+
+                        toggle.addEventListener("change", () => {
+                            if (toggle.checked){
+                                localStorage.setItem("theme","dark");
+                                document.documentElement.classList.add("dark-mode");
+                            } else{
+                                localStorage.setItem("theme","light");
+                                document.documentElement.classList.remove("dark-mode");
+                            }
+                        });
+                    });
+                </script>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link" href = "index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://github.com/ldpina">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://www.linkedin.com/in/ldpina/">Linkedin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "contactme.html">Contact Me</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <br>
+        <main>
+            <form action="https://httpbin.org/post" id = "contactForm" method = "POST">
+                <fieldset>
+                    <legend>Contact Me:</legend>
+
+                    <label for="nameInfo">Name:</label><br>
+                    <input type="text" id="nameInfo" name="nameInfo" value="" required><br>
+    
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+    
+                    <label for="inquiryInfo">Comments:</label><br>
+                    <textarea id="inquiryInfo" name="inquiryInfo" rows="4" cols="30" placeholder="type here..." required></textarea>
+                    <div id="char-counter">400 characters remaining</div>
+                    <input type="hidden" id="possible_bot" name="possible_bot" value="true"><br>
+                    <input type="hidden" id="formErrorsField" name="form-errors">
+                    <output id="error-message"></output>
+                    <output id="info-message"></output>
+                    <input type="submit" value="Submit">
+                </fieldset>
+            </form>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () =>{
+                    const form = document.getElementById("contactForm");
+                    const nameInput = document.getElementById("nameInfo");
+                    const emailInput = document.getElementById("email");
+                    const commentsInput = document.getElementById("inquiryInfo");
+                    const errorMsg = document.getElementById("error-message");
+                    const charCounter = document.getElementById("char-counter");
+                    const formErrorsField = document.getElementById("formErrorsField");
+                
+                    const maxChars = 400;
+                    let form_errors = [];
+
+                    function updateErrorMsg(message){
+                        errorMsg.textContent = message;
+                        errorMsg.style.display = "block";
+                        setTimeout(() => {
+                            errorMsg.style.display = "none";
+                        }, 4000);
+                    }
+
+                    function logError(field, message) {
+                        form_errors.push({ field, message });
+                        updateErrorMsg(message);
+                        console.log(form_errors);
+                    }
+
+                    nameInput.addEventListener("input", ()=>{
+                        const nameRegex = /^[A-Za-z\s]+$/;
+                        if (!nameRegex.test(nameInput.value)){
+                            updateErrorMsg("Name must only contain letters and spaces");
+                        }else {
+                        
+                        form_errors = form_errors.filter(error => error.field !== "nameInfo");
+                        }
+                    });
+
+                    commentsInput.addEventListener("input", () => {
+                        const remainingChars = maxChars - commentsInput.value.length;
+                        charCounter.textContent = `${remainingChars} characters remaining`;
+
+                        if (remainingChars == 400){
+                            updateErrorMsg("Please enter a comment");
+                            commentsInput.value = commentsInput.value.substring(0, maxChars);
+                        }
+
+                        if (remainingChars <= 50){
+                            charCounter.style.color = "orange";
+                        }else{
+                            charCounter.style.color = "";
+                        }
+
+                        if (remainingChars <= 10){
+                            charCounter.style.color = "red";
+                        }
+
+                        if (remainingChars <= 0){
+                            updateErrorMsg("Comments cannot exceed 400 characters");
+                            commentsInput.value = commentsInput.value.substring(0, maxChars);
+                            commentsInput.style.backgroundColor = "#ffdddd";
+                        } else {
+                       
+                        form_errors = form_errors.filter(error => error.field !== "inquiryInfo");
+                        }
+                    });
+
+                    form.addEventListener("submit", (event) => {
+                        form_errors = [];
+
+                        const nameRegex = /^[A-Za-z\s]+$/;
+                        if (!nameRegex.test(nameInput.value)) {
+                            logError("nameInfo", "Name must only contain letters and spaces");
+                        }
+
+                        if (!emailInput.checkValidity()) {
+                        logError("email", "Invalid email input");
+                        }
+
+                        if (commentsInput.value.length > maxChars) {
+                        logError("inquiryInfo", "Comment is too long.");
+                        }
+
+                    
+                        if (form_errors.length > 0) {
+                            event.preventDefault(); 
+                            formErrorsField.value = JSON.stringify(form_errors);
+                            console.log("Form Errors:", form_errors);
+                        } else {
+                            formErrorsField.value = JSON.stringify(form_errors);
+                        }
+                    });
+                });
+
+            </script>
+            <br>
+    
+            <hr>
+    
+            <address>
+                Written by Luis Pina.
+                <br> 
+                Visit my storefront:
+                <br>
+                luispina.com
+                <br>
+                2023 Commerce Rd, Los Angeles
+                <br>
+                USA
+                </address>
+    
+            <br><br>
+        </main>
+    </body>
+</html>
