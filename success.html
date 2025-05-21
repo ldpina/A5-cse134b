@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>Luis Pina Portfolio</title>
+        <meta charset="UTF-8">
+        <link rel = "stylesheet" href = "styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <input type="checkbox" id="toggle">
+
+            <nav>
+
+                <a id="titleSite" href="index.html">
+                    Luis Pina
+                </a>
+
+                <label class="navbar-toggler" for="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </label>
+
+                <input type = "checkbox" id = "mood-toggle" class = "mood-toggle">
+                <label for = "mood-toggle" class = "mood-toggle-label" aria-label="Toggle Dark Mode">
+                    <span class = "sun">☀</span>
+                    <span class = "moon">🌙</span>
+                </label>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const toggle = document.getElementById("mood-toggle");
+
+                        if (localStorage.getItem("theme") === "dark"){
+                            toggle.checked = true;
+                            document.documentElement.classList.add("dark-mode");
+                        }
+
+                        toggle.addEventListener("change", () => {
+                            if (toggle.checked){
+                                localStorage.setItem("theme","dark");
+                                document.documentElement.classList.add("dark-mode");
+                            } else{
+                                localStorage.setItem("theme","light");
+                                document.documentElement.classList.remove("dark-mode");
+                            }
+                        });
+                    });
+                </script>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="nav-link" href = "index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://github.com/ldpina">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "https://www.linkedin.com/in/ldpina/">Linkedin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href = "contactme.html">Contact Me</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+        <br>
+        <main>
+           
+            <br>
+    
+            <h1>THANK YOU!</h1>
+    
+            <br><br>
+        </main>
+    </body>
+</html>

@@ -69,7 +69,7 @@
         </header>
         <br>
         <main>
-            <form id = "contactForm" method = "POST" data-netlify="true" onSubmit="submit" netlify>
+            <form id = "contactForm" method = "POST" data-netlify="true" onSubmit="submit" netlify >
                 <fieldset>
                     <legend>Contact Me:</legend>
 
@@ -89,6 +89,10 @@
                     <input type="submit" value="Submit">
                 </fieldset>
             </form>
+
+            <div id="thank-you-message" style="display:none;">
+                <p>✅ Thank you! Your message has been sent.</p>
+            </div>
 
             <script>
                 document.addEventListener("DOMContentLoaded", () =>{
@@ -182,8 +186,33 @@
                         }
                     });
                 });
-
             </script>
+
+            <script>
+                document.getElementById("contactForm").addEventListener("submit", async function(e) {
+                e.preventDefault();
+                
+                const form = e.target;
+                const data = new FormData(form);
+                
+                try {
+                    const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Accept": "application/json" },
+                    body: data
+                    });
+                
+                    if (response.ok) {
+                    form.style.display = "none"; 
+                    document.getElementById("thank-you-message").style.display = "block";
+                    } else {
+                    document.getElementById("error-message").textContent = "❌ Something went wrong. Please try again.";
+                    }
+                } catch (error) {
+                    document.getElementById("error-message").textContent = "❌ Submission failed. Please try again.";
+                }
+                });
+                </script>
             <br>
     
             <hr>
